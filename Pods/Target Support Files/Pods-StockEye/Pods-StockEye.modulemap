@@ -1,0 +1,6 @@
+framework module Pods_StockEye {
+  umbrella header "Pods-StockEye-umbrella.h"
+
+  export *
+  module * { export * }
+}

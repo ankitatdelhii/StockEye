@@ -3,27 +3,33 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EE95CA355A4400E2AB57AB8 /* Pods_StockEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0406EAAA28BD1EFFCF5A973 /* Pods_StockEye.framework */; };
 		9D52F23F2694DD6600DAF90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F23E2694DD6600DAF90B /* AppDelegate.swift */; };
 		9D52F2412694DD6600DAF90B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F2402694DD6600DAF90B /* SceneDelegate.swift */; };
-		9D52F2432694DD6600DAF90B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F2422694DD6600DAF90B /* ViewController.swift */; };
+		9D52F2432694DD6600DAF90B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F2422694DD6600DAF90B /* SearchTableViewController.swift */; };
 		9D52F2462694DD6600DAF90B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D52F2442694DD6600DAF90B /* Main.storyboard */; };
 		9D52F2482694DD6700DAF90B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D52F2472694DD6700DAF90B /* Assets.xcassets */; };
 		9D52F24B2694DD6700DAF90B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D52F2492694DD6700DAF90B /* LaunchScreen.storyboard */; };
+		9DD136C72694E6AD00D17C00 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD136C62694E6AD00D17C00 /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		339F12B964F65BDF89D65375 /* Pods-StockEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockEye.debug.xcconfig"; path = "Target Support Files/Pods-StockEye/Pods-StockEye.debug.xcconfig"; sourceTree = "<group>"; };
 		9D52F23B2694DD6600DAF90B /* StockEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D52F23E2694DD6600DAF90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D52F2402694DD6600DAF90B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D52F2422694DD6600DAF90B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9D52F2422694DD6600DAF90B /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		9D52F2452694DD6600DAF90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D52F2472694DD6700DAF90B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D52F24A2694DD6700DAF90B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D52F24C2694DD6700DAF90B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DD136C62694E6AD00D17C00 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		A0406EAAA28BD1EFFCF5A973 /* Pods_StockEye.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockEye.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A14B3954D2D145C20B9B0674 /* Pods-StockEye.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockEye.release.xcconfig"; path = "Target Support Files/Pods-StockEye/Pods-StockEye.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EE95CA355A4400E2AB57AB8 /* Pods_StockEye.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7190A343E5A61EEDA003C034 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0406EAAA28BD1EFFCF5A973 /* Pods_StockEye.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9D52F2322694DD6600DAF90B = {
 			isa = PBXGroup;
 			children = (
 				9D52F23D2694DD6600DAF90B /* StockEye */,
 				9D52F23C2694DD6600DAF90B /* Products */,
+				B2D0F2042F0D7767B678E89C /* Pods */,
+				7190A343E5A61EEDA003C034 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +73,41 @@
 		9D52F23D2694DD6600DAF90B /* StockEye */ = {
 			isa = PBXGroup;
 			children = (
+				9DD136C52694E69700D17C00 /* controller */,
+				9DD136C42694E68600D17C00 /* view */,
 				9D52F23E2694DD6600DAF90B /* AppDelegate.swift */,
 				9D52F2402694DD6600DAF90B /* SceneDelegate.swift */,
-				9D52F2422694DD6600DAF90B /* ViewController.swift */,
 				9D52F2442694DD6600DAF90B /* Main.storyboard */,
 				9D52F2472694DD6700DAF90B /* Assets.xcassets */,
 				9D52F2492694DD6700DAF90B /* LaunchScreen.storyboard */,
 				9D52F24C2694DD6700DAF90B /* Info.plist */,
 			);
 			path = StockEye;
+			sourceTree = "<group>";
+		};
+		9DD136C42694E68600D17C00 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				9DD136C62694E6AD00D17C00 /* SearchTableViewCell.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		9DD136C52694E69700D17C00 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				9D52F2422694DD6600DAF90B /* SearchTableViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		B2D0F2042F0D7767B678E89C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				339F12B964F65BDF89D65375 /* Pods-StockEye.debug.xcconfig */,
+				A14B3954D2D145C20B9B0674 /* Pods-StockEye.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +117,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D52F24F2694DD6700DAF90B /* Build configuration list for PBXNativeTarget "StockEye" */;
 			buildPhases = (
+				4B329129B0AA77DB4D3D784D /* [CP] Check Pods Manifest.lock */,
 				9D52F2372694DD6600DAF90B /* Sources */,
 				9D52F2382694DD6600DAF90B /* Frameworks */,
 				9D52F2392694DD6600DAF90B /* Resources */,
+				6021A76327DC37F3970D26BD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,12 +177,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4B329129B0AA77DB4D3D784D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StockEye-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6021A76327DC37F3970D26BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StockEye/Pods-StockEye-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StockEye/Pods-StockEye-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StockEye/Pods-StockEye-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9D52F2372694DD6600DAF90B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D52F2432694DD6600DAF90B /* ViewController.swift in Sources */,
+				9D52F2432694DD6600DAF90B /* SearchTableViewController.swift in Sources */,
+				9DD136C72694E6AD00D17C00 /* SearchTableViewCell.swift in Sources */,
 				9D52F23F2694DD6600DAF90B /* AppDelegate.swift in Sources */,
 				9D52F2412694DD6600DAF90B /* SceneDelegate.swift in Sources */,
 			);
@@ -283,6 +371,7 @@
 		};
 		9D52F2502694DD6700DAF90B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 339F12B964F65BDF89D65375 /* Pods-StockEye.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +391,7 @@
 		};
 		9D52F2512694DD6700DAF90B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A14B3954D2D145C20B9B0674 /* Pods-StockEye.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
