@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2EE95CA355A4400E2AB57AB8 /* Pods_StockEye.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0406EAAA28BD1EFFCF5A973 /* Pods_StockEye.framework */; };
 		9D19354B2697239900BAFD2D /* SearchPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19354A2697239900BAFD2D /* SearchPlaceholderView.swift */; };
+		9D19354E26972A1000BAFD2D /* UIAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19354D26972A1000BAFD2D /* UIAnimatable.swift */; };
 		9D52F23F2694DD6600DAF90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F23E2694DD6600DAF90B /* AppDelegate.swift */; };
 		9D52F2412694DD6600DAF90B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F2402694DD6600DAF90B /* SceneDelegate.swift */; };
 		9D52F2432694DD6600DAF90B /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D52F2422694DD6600DAF90B /* SearchTableViewController.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		339F12B964F65BDF89D65375 /* Pods-StockEye.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockEye.debug.xcconfig"; path = "Target Support Files/Pods-StockEye/Pods-StockEye.debug.xcconfig"; sourceTree = "<group>"; };
 		9D19354A2697239900BAFD2D /* SearchPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPlaceholderView.swift; sourceTree = "<group>"; };
+		9D19354D26972A1000BAFD2D /* UIAnimatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimatable.swift; sourceTree = "<group>"; };
 		9D52F23B2694DD6600DAF90B /* StockEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D52F23E2694DD6600DAF90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D52F2402694DD6600DAF90B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9D19354C269729F800BAFD2D /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9D19354D26972A1000BAFD2D /* UIAnimatable.swift */,
+			);
+			path = protocol;
+			sourceTree = "<group>";
+		};
 		9D52F2322694DD6600DAF90B = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		9D52F23D2694DD6600DAF90B /* StockEye */ = {
 			isa = PBXGroup;
 			children = (
+				9D19354C269729F800BAFD2D /* protocol */,
 				9D87777E2695C47A00A6FE7E /* model */,
 				9D87777B2695BE5A00A6FE7E /* service */,
 				9DD136C52694E69700D17C00 /* controller */,
@@ -250,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D52F2432694DD6600DAF90B /* SearchTableViewController.swift in Sources */,
+				9D19354E26972A1000BAFD2D /* UIAnimatable.swift in Sources */,
 				9D87777D2695BE7B00A6FE7E /* APIService.swift in Sources */,
 				9DD136C72694E6AD00D17C00 /* SearchTableViewCell.swift in Sources */,
 				9D52F23F2694DD6600DAF90B /* AppDelegate.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class SearchTableViewController: UITableViewController {
+class SearchTableViewController: UITableViewController, UIAnimatable {
     
     private enum Mode {
         case onboarding
@@ -52,7 +52,9 @@ class SearchTableViewController: UITableViewController {
         $searchQuery.debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink {[weak self] searchquery in
                 guard let self = self else { return }
-                self.apiService.fetchSymbolPublisher(keyword: searchquery).sink { completion in
+                self.showLoadingAnimation()
+                self.apiService.fetchSymbolPublisher(keyword: searchquery).sink {[weak self] completion in
+                    self?.hideLoadingAnimation()
                     switch completion {
                     case .finished:
                         break
