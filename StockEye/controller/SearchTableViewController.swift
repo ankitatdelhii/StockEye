@@ -52,6 +52,7 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
         $searchQuery.debounce(for: .milliseconds(750), scheduler: RunLoop.main)
             .sink {[weak self] searchquery in
                 guard let self = self else { return }
+                guard !searchquery.isEmpty else { return }
                 self.showLoadingAnimation()
                 self.apiService.fetchSymbolPublisher(keyword: searchquery).sink {[weak self] completion in
                     self?.hideLoadingAnimation()
@@ -90,6 +91,10 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults?.items.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showCalculator", sender: nil)
     }
 
 }
