@@ -37,4 +37,20 @@ struct APIService {
             .eraseToAnyPublisher()
     }
     
+    func fetchTimeSeriesMonthlyAdjustedPublisher(keyword: String) -> AnyPublisher<TimeSeriesMonthlyAdjusted, Error> {
+        guard let keyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return Fail(error: APIServiceError.encoding).eraseToAnyPublisher()
+        }
+        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(keyword)&apikey=\(API_KEY)"
+        guard let requestUrl = URL(string: urlString) else {
+            return Fail(error: APIServiceError.badRequest).eraseToAnyPublisher()
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: requestUrl)
+            .map({$0.data})
+            .decode(type: TimeSeriesMonthlyAdjusted.self, decoder: JSONDecoder())
+            .receive(on: RunLoop.main)
+            .eraseToAnyPublisher()
+    }
+    
 }
