@@ -22,35 +22,66 @@ struct APIService {
     private let keys = ["H5ERMC5EJWXNPHU9", "2HV1CG0V9883Q93X", "2VSFR0K5TEFGKKB8"]
     
     func fetchSymbolPublisher(keyword: String) -> AnyPublisher<SearchResults, Error>{
-        guard let keyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-            return Fail(error: APIServiceError.encoding).eraseToAnyPublisher()
-        }
-        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keyword)&apikey=\(API_KEY)"
-        guard let requestUrl = URL(string: urlString) else {
-            return Fail(error: APIServiceError.badRequest).eraseToAnyPublisher()
+
+        var keywords = String()
+        switch parseQuery(text: keyword) {
+        case .success(let result):
+            keywords = result
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
         }
         
-        return URLSession.shared.dataTaskPublisher(for: requestUrl)
-            .map({$0.data})
-            .decode(type: SearchResults.self, decoder: JSONDecoder())
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keywords)&apikey=\(API_KEY)"
+        switch parseUrl(stringUrl: urlString) {
+        case .success(let url):
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .map({$0.data})
+                .decode(type: SearchResults.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+        
     }
     
     func fetchTimeSeriesMonthlyAdjustedPublisher(keyword: String) -> AnyPublisher<TimeSeriesMonthlyAdjusted, Error> {
-        guard let keyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-            return Fail(error: APIServiceError.encoding).eraseToAnyPublisher()
-        }
-        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(keyword)&apikey=\(API_KEY)"
-        guard let requestUrl = URL(string: urlString) else {
-            return Fail(error: APIServiceError.badRequest).eraseToAnyPublisher()
+
+        var symbol = String()
+        switch parseQuery(text: keyword) {
+        case .success(let result):
+            symbol = result
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
         }
         
-        return URLSession.shared.dataTaskPublisher(for: requestUrl)
-            .map({$0.data})
-            .decode(type: TimeSeriesMonthlyAdjusted.self, decoder: JSONDecoder())
-            .receive(on: RunLoop.main)
-            .eraseToAnyPublisher()
+        
+        let urlString = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=\(symbol)&apikey=\(API_KEY)"
+        
+        switch parseUrl(stringUrl: urlString) {
+        case .success(let url):
+            return URLSession.shared.dataTaskPublisher(for: url)
+                .map({$0.data})
+                .decode(type: TimeSeriesMonthlyAdjusted.self, decoder: JSONDecoder())
+                .receive(on: RunLoop.main)
+                .eraseToAnyPublisher()
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
+    
+    private func parseQuery(text: String) -> Result<String, Error> {
+        guard let query = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
+            return .failure(APIServiceError.encoding)
+        }
+        return .success(query)
+    }
+    
+    private func parseUrl(stringUrl: String) -> Result<URL, Error> {
+        guard let requestUrl = URL(string: stringUrl) else {
+            return .failure(APIServiceError.badRequest)
+        }
+        return .success(requestUrl)
     }
     
 }

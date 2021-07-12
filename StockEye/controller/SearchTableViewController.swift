@@ -94,7 +94,34 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showCalculator", sender: nil)
+        if let hasResults = searchResults {
+            let symbol = hasResults.items[indexPath.row].symbol
+            let result = hasResults.items[indexPath.row]
+            handleSelection(for: symbol, seachResult: result)
+        }
+    }
+    
+    private func handleSelection(for symbol: String, seachResult: SearchResult) {
+        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(keyword: symbol).sink { completionResult in
+            switch completionResult {
+            case .finished: break
+            case .failure(let error):
+                print("Error fetching symbol \(error.localizedDescription)")
+            }
+        } receiveValue: {[weak self] timeSeriesMonthlyAdjusted in
+            print("success: \(timeSeriesMonthlyAdjusted.getMonthInfos())")
+            let asset = Asset(searchResult: seachResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
+            self?.performSegue(withIdentifier: SEARCH_TO_CALCULATOR_SEGUE, sender: asset)
+        }.store(in: &subscribers)
+
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SEARCH_TO_CALCULATOR_SEGUE,
+           let destinationVC = segue.destination as? CalculatorTableViewController,
+           let asset = sender as? Asset {
+            destinationVC.asset = asset
+        }
     }
 
 }
@@ -114,3 +141,4 @@ extension SearchTableViewController: UISearchResultsUpdating, UISearchController
 
 //MARK: Constants
 let CELL_ID = "cellId"
+let SEARCH_TO_CALCULATOR_SEGUE = "showCalculator"
