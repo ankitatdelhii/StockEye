@@ -397,8 +397,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="za1-Xv-tej"/>
                     <connections>
+                        <outlet property="investmentAmountCurrencyLabel" destination="Xij-dT-eTl" id="5uI-ym-eCj"/>
                         <outlet property="nameLbl" destination="bgo-7w-85A" id="1Xw-1l-Lsl"/>
                         <outlet property="symbolLbl" destination="Gce-S6-T6Y" id="ppV-5A-qO1"/>
+                        <outletCollection property="currencyLabels" destination="eOk-gQ-h6K" collectionClass="NSMutableArray" id="opO-YK-GVg"/>
+                        <outletCollection property="currencyLabels" destination="cKU-Ow-qXZ" collectionClass="NSMutableArray" id="Ryg-CY-MMH"/>
+                        <outletCollection property="currencyLabels" destination="53U-LX-iHr" collectionClass="NSMutableArray" id="Woy-lm-CIq"/>
                         <segue destination="lsR-e3-FJM" kind="show" id="KwC-4L-3td"/>
                     </connections>
                 </tableViewController>

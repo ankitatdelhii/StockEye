@@ -102,13 +102,16 @@ class SearchTableViewController: UITableViewController, UIAnimatable {
     }
     
     private func handleSelection(for symbol: String, seachResult: SearchResult) {
-        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(keyword: symbol).sink { completionResult in
+        showLoadingAnimation()
+        apiService.fetchTimeSeriesMonthlyAdjustedPublisher(keyword: symbol).sink {[weak self] completionResult in
+            self?.hideLoadingAnimation()
             switch completionResult {
             case .finished: break
             case .failure(let error):
                 print("Error fetching symbol \(error.localizedDescription)")
             }
         } receiveValue: {[weak self] timeSeriesMonthlyAdjusted in
+            self?.hideLoadingAnimation()
             print("success: \(timeSeriesMonthlyAdjusted.getMonthInfos())")
             let asset = Asset(searchResult: seachResult, timeSeriesMonthlyAdjusted: timeSeriesMonthlyAdjusted)
             self?.performSegue(withIdentifier: SEARCH_TO_CALCULATOR_SEGUE, sender: asset)
